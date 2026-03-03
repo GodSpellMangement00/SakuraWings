@@ -1,124 +1,134 @@
 /* =========================
-   🌸 SAFE FINAL JS
+   🌸 ELEGANT ANIME NIGHT JS
    ========================= */
 
-/* SCROLL REVEAL */
-function revealOnScroll() {
-  const reveals = document.querySelectorAll(".reveal");
 
-  reveals.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add("active");
-    }
-  });
-}
+/* ================= AUTO HIDE NAVBAR ================= */
 
-window.addEventListener("scroll", revealOnScroll);
+let lastScroll = 0;
+const navbar = document.querySelector(".navbar");
 
-
-/* SKILL BAR ANIMATION */
-function animateSkills() {
-  const fills = document.querySelectorAll(".fill");
-
-  fills.forEach(fill => {
-    const rect = fill.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      fill.style.width = fill.dataset.width;
-    }
-  });
-}
-
-window.addEventListener("scroll", animateSkills);
-
-
-/* COUNTER ANIMATION */
-let counterStarted = false;
-
-function animateCounters() {
-  if (counterStarted) return;
-
-  const stats = document.querySelector(".stats-section");
-  if (!stats) return;
-
-  const rect = stats.getBoundingClientRect();
-  if (rect.top < window.innerHeight - 100) {
-
-    const counters = document.querySelectorAll(".counter");
-
-    counters.forEach(counter => {
-      const target = +counter.dataset.target;
-      let count = 0;
-      const increment = target / 60;
-
-      function update() {
-        count += increment;
-        if (count < target) {
-          counter.innerText = Math.ceil(count);
-          requestAnimationFrame(update);
-        } else {
-          counter.innerText = target + "+";
-        }
-      }
-
-      update();
-    });
-
-    counterStarted = true;
-  }
-}
-
-window.addEventListener("scroll", animateCounters);
-
-
-/* PARALLAX HERO (SAFE) */
 window.addEventListener("scroll", () => {
-  const hero = document.querySelector(".hero");
-  if (hero) {
-    hero.style.backgroundPositionY = window.scrollY * 0.3 + "px";
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll) {
+    navbar.style.transform = "translateY(-100%)";
+  } else {
+    navbar.style.transform = "translateY(0)";
   }
+
+  lastScroll = currentScroll;
 });
 
 
-/* CURSOR GLOW (SAFE) */
-const glow = document.querySelector(".cursor-glow");
+/* ================= TYPING EFFECT ================= */
 
-if (glow) {
-  document.addEventListener("mousemove", (e) => {
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-  });
+const textArray = [
+  "Building elegant Discord ecosystems.",
+  "Designing aesthetic web experiences.",
+  "Crafting structured digital communities."
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingElement = document.getElementById("typing-text");
+
+function typeEffect() {
+  if (!typingElement) return;
+
+  const currentText = textArray[textIndex];
+
+  if (!isDeleting) {
+    typingElement.textContent = currentText.substring(0, charIndex++);
+    if (charIndex > currentText.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1200);
+      return;
+    }
+  } else {
+    typingElement.textContent = currentText.substring(0, charIndex--);
+    if (charIndex === 0) {
+      isDeleting = false;
+      textIndex = (textIndex + 1) % textArray.length;
+    }
+  }
+
+  setTimeout(typeEffect, isDeleting ? 40 : 70);
+}
+
+typeEffect();
+
+
+/* ================= SUBTLE STARS ================= */
+
+const starsContainer = document.querySelector(".stars");
+
+if (starsContainer) {
+  for (let i = 0; i < 35; i++) {
+    const star = document.createElement("div");
+    star.classList.add("star");
+    star.style.top = Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    starsContainer.appendChild(star);
+  }
 }
 
 
-/* THEME TOGGLE */
-const toggle = document.getElementById("themeToggle");
+/* ================= RARE PETALS ================= */
 
-if (toggle) {
-  toggle.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-    toggle.textContent =
-      document.body.classList.contains("light-mode") ? "🌸" : "🌙";
-  });
+function createPetal() {
+  const petal = document.createElement("div");
+  petal.textContent = "🌸";
+  petal.style.position = "fixed";
+  petal.style.top = "-20px";
+  petal.style.left = Math.random() * window.innerWidth + "px";
+  petal.style.fontSize = "18px";
+  petal.style.opacity = "0.6";
+  petal.style.pointerEvents = "none";
+  petal.style.animation = "fall 8s linear forwards";
+
+  document.body.appendChild(petal);
+
+  setTimeout(() => {
+    petal.remove();
+  }, 8000);
 }
 
+setInterval(createPetal, 5000);
 
-/* SOUND TOGGLE (SAFE) */
-const soundBtn = document.getElementById("soundToggle");
-const music = document.getElementById("bgMusic");
 
-if (soundBtn && music) {
-  let playing = false;
+/* Petal Animation */
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+`;
+document.head.appendChild(style);
 
-  soundBtn.addEventListener("click", () => {
-    if (!playing) {
-      music.play().catch(() => {});
-      soundBtn.textContent = "🔇";
-      playing = true;
-    } else {
-      music.pause();
-      soundBtn.textContent = "🔊";
-      playing = false;
+
+/* ================= SMOOTH REVEAL ================= */
+
+const revealElements = document.querySelectorAll(".section");
+
+function revealOnScroll() {
+  revealElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
     }
   });
 }
+
+revealElements.forEach(el => {
+  el.style.opacity = "0";
+  el.style.transform = "translateY(40px)";
+  el.style.transition = "all 0.8s ease";
+});
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
