@@ -8,26 +8,45 @@
 </head>
 <body>
 
+<!-- 🌸 LOADER -->
+<div id="loader">
+  <div class="loader-content">🌸 DeadSlot</div>
+</div>
+
+<!-- 🌸 CURSOR GLOW -->
+<div class="cursor-glow"></div>
+
 <!-- 🌸 NAVBAR -->
 <nav class="navbar">
   <div class="nav-logo">DeadSlot 🌸</div>
+
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#servers">Servers</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+
+  <div>
+    <button id="themeToggle" class="theme-btn">🌙</button>
+    <button id="soundToggle" class="theme-btn">🔊</button>
+  </div>
 </nav>
 
 <!-- 🌙 HERO -->
 <section class="hero" id="home">
   <div class="hero-overlay"></div>
+  <div class="aurora"></div>
+  <div class="stars"></div>
+
   <div class="hero-content">
     <img src="assets/pfp3.jpeg" class="profile-img">
+
     <h1>DeadSlot 🌙</h1>
     <p class="subtitle">
       Discord Developer • Website Designer • Community Architect
     </p>
+
     <div class="hero-buttons">
       <a href="#services" class="btn primary">🌸 My Services</a>
       <a href="https://discord.com/users/1121062759971430510"
@@ -44,19 +63,21 @@
       <h2>About Me 🌙</h2>
       <p>
         I build secure, scalable and aesthetic Discord ecosystems 
-        and modern websites designed to attract and retain users.
+        and modern websites designed for growth and structure.
       </p>
     </div>
+
     <div class="about-image">
       <img src="assets/banner.jpeg">
     </div>
   </div>
 </section>
 
-<!-- 💼 BUSINESS SECTION -->
+<!-- 💼 BUSINESS CTA -->
 <section class="business-section reveal">
   <h2>Grow Your Community With Me 🚀</h2>
   <p>Structured systems. Clean architecture. Growth-focused design.</p>
+
   <div class="business-cta"
        onclick="window.open('https://discord.com/users/1121062759971430510','_blank')">
        🌸 Start Building Now
@@ -66,22 +87,26 @@
 <!-- 🌸 SERVICES -->
 <section id="services" class="services-section reveal">
   <h2>My Services ✨</h2>
+
   <div class="service-grid">
     <div class="service-card">
       <div class="icon">💬</div>
       <h3>Discord Server Setup</h3>
       <p>Full structured builds with security & branding.</p>
     </div>
+
     <div class="service-card">
       <div class="icon">🛡️</div>
       <h3>Server Management</h3>
       <p>Active moderation & growth systems.</p>
     </div>
+
     <div class="service-card">
       <div class="icon">🤖</div>
       <h3>Bot Development</h3>
       <p>Advanced automation & integrations.</p>
     </div>
+
     <div class="service-card">
       <div class="icon">🌐</div>
       <h3>Website Design</h3>
@@ -168,10 +193,15 @@
   </button>
 </section>
 
-<!-- 🌙 FOOTER -->
-<footer>
-  © 2026 DeadSlot • Built under moonlight 🌸
-</footer>
+<!-- 🌙 FLOATING DM -->
+<a href="https://discord.com/users/1121062759971430510"
+   target="_blank"
+   class="floating-dm">💬</a>
+
+<!-- 🌸 AUDIO -->
+<audio id="bgMusic" loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
 
 <script src="script.js"></script>
 </body>
