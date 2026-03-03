@@ -1,8 +1,7 @@
 /* =========================
-   🌸 FINAL STABLE CSS
+   🌸 STABLE FINAL CSS
    ========================= */
 
-/* RESET */
 *{
   margin:0;
   padding:0;
@@ -18,40 +17,6 @@ body{
   background:linear-gradient(135deg,#0f1020,#1b1c35,#2b1f3f);
   color:white;
   overflow-x:hidden;
-  opacity:0;
-  transition:opacity 0.8s ease;
-}
-
-body.loaded{
-  opacity:1;
-}
-
-section{
-  padding:100px 10%;
-}
-
-/* ================= LOADER ================= */
-
-#loader{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(135deg,#0f1020,#1b1c35);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-  transition:opacity 0.6s ease;
-}
-
-.loader-content{
-  font-size:2rem;
-  color:#ff8bd6;
-  animation:pulse 1.5s infinite alternate;
-}
-
-@keyframes pulse{
-  from{opacity:0.5;}
-  to{opacity:1;}
 }
 
 /* ================= NAVBAR ================= */
@@ -64,8 +29,8 @@ section{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(15,15,25,0.6);
-  backdrop-filter:blur(15px);
+  background:rgba(15,15,25,0.7);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,255,255,0.08);
   z-index:1000;
 }
@@ -78,7 +43,7 @@ section{
 .nav-links{
   list-style:none;
   display:flex;
-  gap:30px;
+  gap:25px;
 }
 
 .nav-links a{
@@ -91,15 +56,6 @@ section{
   color:#ff8bd6;
 }
 
-.theme-btn{
-  background:none;
-  border:none;
-  color:#ff8bd6;
-  font-size:18px;
-  margin-left:10px;
-  cursor:pointer;
-}
-
 /* ================= HERO ================= */
 
 .hero{
@@ -110,6 +66,7 @@ section{
   text-align:center;
   background:url("assets/banner1.jpeg") center/cover no-repeat;
   position:relative;
+  padding-top:80px;
 }
 
 .hero-overlay{
@@ -121,35 +78,35 @@ section{
 
 .hero-content{
   position:relative;
-  z-index:3;
+  z-index:2;
 }
 
 .profile-img{
-  width:160px;
+  width:150px;
   border-radius:50%;
   border:3px solid #ff8bd6;
-  box-shadow:0 0 40px rgba(255,139,214,0.5);
-  margin-bottom:25px;
+  margin-bottom:20px;
 }
 
 h1{
-  font-size:3rem;
+  font-size:2.8rem;
   margin-bottom:10px;
 }
 
 .subtitle{
   color:#aab0ff;
-  margin-bottom:25px;
+  margin-bottom:20px;
 }
 
 /* ================= BUTTONS ================= */
 
 .btn{
-  padding:12px 30px;
+  padding:10px 25px;
   border-radius:30px;
   text-decoration:none;
   font-weight:600;
-  margin:6px;
+  margin:5px;
+  display:inline-block;
   transition:0.3s;
 }
 
@@ -164,98 +121,101 @@ h1{
 }
 
 .btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 20px rgba(255,110,199,0.5);
+  transform:translateY(-3px);
+  box-shadow:0 0 15px rgba(255,110,199,0.5);
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+  padding:100px 10%;
 }
 
 /* ================= ABOUT ================= */
 
 .about-container{
   display:flex;
-  align-items:center;
-  gap:50px;
   flex-wrap:wrap;
+  gap:40px;
+  align-items:center;
 }
 
 .about-image img{
-  width:350px;
-  border-radius:20px;
-  box-shadow:0 0 40px rgba(108,140,255,0.3);
+  width:300px;
+  border-radius:15px;
 }
 
 /* ================= SERVICES ================= */
 
 .service-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:35px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
 }
 
 .service-card{
   background:rgba(255,255,255,0.05);
-  padding:35px;
-  border-radius:25px;
-  backdrop-filter:blur(15px);
+  padding:30px;
+  border-radius:20px;
   transition:0.3s;
 }
 
 .service-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 30px rgba(108,140,255,0.3);
+  transform:translateY(-5px);
+  box-shadow:0 0 20px rgba(108,140,255,0.3);
 }
 
 .icon{
-  font-size:42px;
-  margin-bottom:15px;
+  font-size:35px;
+  margin-bottom:10px;
 }
 
 /* ================= DISCORD ================= */
 
 .discord-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
 
 .discord-card{
   background:rgba(255,255,255,0.05);
-  padding:35px;
-  border-radius:25px;
-  backdrop-filter:blur(20px);
+  padding:30px;
+  border-radius:20px;
   transition:0.3s;
   position:relative;
 }
 
 .discord-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 40px rgba(255,110,199,0.4);
+  transform:translateY(-5px);
+  box-shadow:0 0 25px rgba(255,110,199,0.4);
 }
 
 .server-icon{
-  width:90px;
-  border-radius:20px;
-  margin-bottom:20px;
+  width:80px;
+  border-radius:15px;
+  margin-bottom:15px;
 }
 
 .online-badge{
   position:absolute;
-  top:15px;
-  right:15px;
-  font-size:12px;
+  top:10px;
+  right:10px;
+  font-size:11px;
   background:rgba(0,255,120,0.15);
   color:#00ff88;
-  padding:6px 12px;
-  border-radius:20px;
+  padding:4px 8px;
+  border-radius:15px;
   border:1px solid #00ff88;
 }
 
 .discord-card a{
   display:inline-block;
-  margin-top:15px;
-  padding:10px 25px;
+  margin-top:10px;
+  padding:8px 20px;
   background:linear-gradient(90deg,#ff6ec7,#6c8cff);
   color:white;
-  border-radius:25px;
+  border-radius:20px;
   text-decoration:none;
 }
 
@@ -263,7 +223,7 @@ h1{
 
 .skill{
   max-width:600px;
-  margin:0 auto 30px;
+  margin:0 auto 25px;
 }
 
 .bar{
@@ -271,14 +231,14 @@ h1{
   background:#2b2c45;
   border-radius:20px;
   overflow:hidden;
-  margin-top:8px;
+  margin-top:5px;
 }
 
 .fill{
   height:100%;
   background:linear-gradient(90deg,#ff6ec7,#6c8cff);
   width:0;
-  transition:1.5s ease;
+  transition:1.2s ease;
 }
 
 /* ================= STATS ================= */
@@ -286,13 +246,13 @@ h1{
 .stats-section{
   display:flex;
   justify-content:center;
-  gap:70px;
-  text-align:center;
+  gap:50px;
   flex-wrap:wrap;
+  text-align:center;
 }
 
 .stat h3{
-  font-size:2rem;
+  font-size:1.8rem;
   color:#ff8bd6;
 }
 
@@ -303,64 +263,48 @@ h1{
 }
 
 .final-cta button{
-  padding:15px 40px;
+  padding:12px 30px;
   background:linear-gradient(90deg,#ff6ec7,#6c8cff);
   border:none;
-  border-radius:40px;
+  border-radius:30px;
   color:white;
   cursor:pointer;
   transition:0.3s;
 }
 
 .final-cta button:hover{
-  box-shadow:0 0 30px rgba(255,110,199,0.6);
+  box-shadow:0 0 20px rgba(255,110,199,0.6);
 }
 
 /* ================= FLOATING DM ================= */
 
 .floating-dm{
   position:fixed;
-  bottom:25px;
-  right:25px;
+  bottom:20px;
+  right:20px;
   background:linear-gradient(90deg,#ff6ec7,#6c8cff);
-  width:60px;
-  height:60px;
+  width:55px;
+  height:55px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:24px;
+  font-size:22px;
   text-decoration:none;
   color:white;
-  box-shadow:0 0 25px rgba(255,110,199,0.6);
-  transition:0.3s;
+  box-shadow:0 0 20px rgba(255,110,199,0.6);
   z-index:999;
-}
-
-.floating-dm:hover{
-  transform:scale(1.1);
 }
 
 /* ================= CURSOR GLOW ================= */
 
 .cursor-glow{
   position:fixed;
-  width:200px;
-  height:200px;
+  width:150px;
+  height:150px;
   background:radial-gradient(circle, rgba(255,110,199,0.25) 0%, transparent 70%);
   border-radius:50%;
   pointer-events:none;
   transform:translate(-50%, -50%);
   z-index:0;
-}
-
-/* ================= LIGHT MODE ================= */
-
-body.light-mode{
-  background:linear-gradient(135deg,#ffd6ec,#ffeaf7);
-  color:#222;
-}
-
-body.light-mode .navbar{
-  background:rgba(255,255,255,0.7);
-}
+   }
