@@ -3,86 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DeadSlot | Portfolio</title>
+<title>DeadSlot | Sakura Night</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
+<!-- 🌸 GLASS NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">DeadSlot 🌸</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+
+<!-- 🌙 HERO -->
 <section class="hero" id="home">
+  <div class="hero-overlay"></div>
 
-  <div class="profile-container">
-    <img src="assets/pfp3.png" class="profile-img">
+  <div class="hero-content">
+    <img src="assets/pfp3.jpeg" class="profile-img">
 
-    <!-- Emoji Ring -->
-    <div class="emoji-ring">
-      <span>💬</span>
-      <span>🐍</span>
-      <span>🛡️</span>
-      <span>🤖</span>
+    <h1>DeadSlot 🌙</h1>
+    <p class="subtitle">
+      Discord Developer • Website Designer • Community Architect
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#services" class="btn primary">🌸 My Services</a>
+      <a href="https://discord.com/users/1121062759971430510"
+         target="_blank"
+         class="btn secondary">💌 Hire Me</a>
     </div>
   </div>
-
-  <h1>DeadSlot</h1>
-  <p class="subtitle">
-    Discord Developer • Web Designer • Community Architect
-  </p>
-
-  <p class="about">
-    I build powerful Discord servers, moderation systems and modern websites 
-    designed for performance and growth.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="#services" class="btn primary">My Services</a>
-    <a href="https://discord.com/users/1121062759971430510"
-       target="_blank"
-       class="btn secondary">
-       Hire Me
-    </a>
-  </div>
-
 </section>
 
-<!-- ===== SERVICES ===== -->
-<section id="services" class="services">
 
-  <h2>My Services</h2>
+<!-- 🌸 ABOUT -->
+<section class="about-section reveal">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>About Me 🌙</h2>
+      <p>
+        I design elite Discord communities, secure moderation systems 
+        and aesthetic websites that attract and retain users.
+      </p>
+    </div>
+
+    <div class="about-image">
+      <img src="assets/banner.jpeg">
+    </div>
+  </div>
+</section>
+
+
+<!-- 💼 BUSINESS ATTRACTION -->
+<section class="business-section reveal">
+  <h2>Grow Your Community With Me 🚀</h2>
+  <p>
+    Structured systems. Professional setup. Long-term scalability.
+    If you're serious about growth — I’m serious about building it.
+  </p>
+
+  <div class="business-cta" onclick="growCard(this)">
+    🌸 Start Building With DeadSlot
+  </div>
+</section>
+
+
+<!-- 🌸 SERVICES -->
+<section id="services" class="services-section reveal">
+  <h2>My Services ✨</h2>
 
   <div class="service-grid">
 
     <div class="service-card">
       <div class="icon">💬</div>
       <h3>Discord Server Setup</h3>
-      <p>Complete structured builds with roles and security systems.</p>
+      <p>Structured builds with roles and security.</p>
     </div>
 
     <div class="service-card">
       <div class="icon">🛡️</div>
-      <h3>Discord Server Management</h3>
-      <p>Active moderation and advanced server systems.</p>
+      <h3>Server Management</h3>
+      <p>Active moderation and organised systems.</p>
     </div>
 
     <div class="service-card">
       <div class="icon">🤖</div>
       <h3>Bot Developer</h3>
-      <p>Automation and smart Discord integrations.</p>
+      <p>Automation and custom integrations.</p>
     </div>
 
     <div class="service-card">
       <div class="icon">🌐</div>
       <h3>Website Designer</h3>
-      <p>Modern responsive websites built clean and fast.</p>
+      <p>Modern responsive aesthetic websites.</p>
     </div>
 
   </div>
-
 </section>
 
-<!-- ===== SKILLS ===== -->
-<section class="skills" id="skills">
 
-  <h2>My Skills</h2>
+<!-- 🌙 SKILLS -->
+<section class="skills-section reveal">
+  <h2>My Skills 🌸</h2>
 
   <div class="skill">
     <span>🐍 Python 85%</span>
@@ -103,16 +131,36 @@
     <span>🧱 HTML & CSS 75%</span>
     <div class="bar"><div class="fill" data-width="75%"></div></div>
   </div>
-
 </section>
 
-<!-- ===== PROJECTS ===== -->
-<section class="projects" id="projects">
 
-  <h2>Featured Projects</h2>
+<!-- 🌸 STATS -->
+<section class="stats-section reveal">
+  <div class="stat">
+    <h3 class="counter" data-target="15">0</h3>
+    <p>Projects Completed</p>
+  </div>
+  <div class="stat">
+    <h3 class="counter" data-target="10">0</h3>
+    <p>Communities Built</p>
+  </div>
+  <div class="stat">
+    <h3 class="counter" data-target="2">0</h3>
+    <p>Years Learning</p>
+  </div>
+</section>
+
+
+<!-- 🌙 PROJECTS -->
+<section id="projects" class="projects-section reveal">
+  <h2>Featured Projects 🌸</h2>
+
+  <div class="projects-bg">
+    <img src="assets/image2.jpeg">
+  </div>
 
   <div class="project-card">
-    <h3>GodSpell Rebirth</h3>
+    <h3>GodSpell Rebirth 🔥</h3>
     <p>High performance structured Discord server.</p>
     <a href="https://discord.gg/vHuTjGkDHa" target="_blank" class="join-btn">
       Join Server
@@ -120,32 +168,27 @@
   </div>
 
   <div class="project-card">
-    <h3>Lmkey</h3>
+    <h3>Lmkey ⚡</h3>
     <p>Organised secure active community server.</p>
     <a href="https://discord.gg/u7bsRqWpbE" target="_blank" class="join-btn">
       Join Server
     </a>
   </div>
-
 </section>
 
-<!-- ===== ACHIEVEMENTS ===== -->
-<section class="achievements">
 
-  <h2>Achievements</h2>
-
-  <ul>
-    <li>🛡️ Anti Nuke Systems Deployed</li>
-    <li>⭐ Trusted By Clients</li>
-    <li>💻 Professional Web Developer</li>
-    <li>🚀 Full Discord Setups Completed</li>
-  </ul>
-
+<!-- 🌸 CONTACT -->
+<section id="contact" class="contact-section reveal">
+  <h2>Let’s Build Something 🌙</h2>
+  <a href="https://discord.com/users/1121062759971430510"
+     target="_blank"
+     class="btn primary">💌 Message Me</a>
 </section>
 
-<!-- ===== FOOTER ===== -->
+
+<!-- 🌸 FOOTER -->
 <footer>
-  <p>© 2026 DeadSlot • Built with passion</p>
+  <p>© 2026 DeadSlot • Built under moonlight 🌸</p>
 </footer>
 
 <script src="script.js"></script>
