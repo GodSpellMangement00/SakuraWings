@@ -186,8 +186,6 @@ html{
 .small{ padding:8px 20px; font-size:0.8rem; }
 .large{ padding:15px 40px; }
 
-.hero{
-  background: url("assets/banner1.jpeg") center/cover no-repeat;
 }
 
 /* ================= SECTION GENERAL ================= */
