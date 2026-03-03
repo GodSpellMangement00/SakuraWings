@@ -3,273 +3,171 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sakura Wings</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#fafafa;
-  color:#222;
-}
-
-/* ===== Layout ===== */
-section{
-  padding:80px 12%;
-}
-
-.container{
-  max-width:1100px;
-  margin:auto;
-}
-
-/* ===== Hero ===== */
-.hero{
-  text-align:center;
-  padding-top:100px;
-}
-
-.profile-wrapper{
-  position:relative;
-  width:170px;
-  height:170px;
-  margin:0 auto 25px;
-}
-
-.profile-wrapper img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  position:relative;
-  z-index:2;
-}
-
-.ring{
-  position:absolute;
-  inset:-8px;
-  border-radius:50%;
-  background:conic-gradient(#ffb7d5,#ff5c9f,#ffd6ea,#ffb7d5);
-  animation:rotate 6s linear infinite;
-}
-
-.ring::after{
-  content:"";
-  position:absolute;
-  inset:10px;
-  background:white;
-  border-radius:50%;
-}
-
-.profile-wrapper::after{
-  content:"";
-  position:absolute;
-  inset:-15px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(255,92,159,0.3),transparent 70%);
-  animation:pulse 3s ease-in-out infinite;
-}
-
-@keyframes rotate{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
-}
-
-@keyframes pulse{
-  0%{transform:scale(1);opacity:0.6;}
-  50%{transform:scale(1.08);opacity:0.3;}
-  100%{transform:scale(1);opacity:0.6;}
-}
-
-.hero h1{
-  font-size:2.8rem;
-  margin-bottom:10px;
-}
-
-.hero p{
-  color:#666;
-  margin-bottom:25px;
-}
-
-.button{
-  display:inline-block;
-  padding:12px 28px;
-  background:#ff5c9f;
-  color:white;
-  border-radius:30px;
-  text-decoration:none;
-  transition:0.3s;
-}
-
-.button:hover{
-  background:#e14c8a;
-}
-
-/* ===== Services ===== */
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
-
-.service{
-  font-weight:500;
-  transition:0.3s;
-}
-
-.service:hover{
-  color:#ff5c9f;
-}
-
-/* ===== Skills ===== */
-.skill{
-  margin-bottom:20px;
-}
-
-.skill-top{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:6px;
-}
-
-.bar{
-  height:8px;
-  background:#eee;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.fill{
-  height:100%;
-  background:#ff5c9f;
-  width:0;
-  transition:1.5s ease;
-}
-
-/* ===== Projects ===== */
-.project{
-  margin-bottom:50px;
-}
-
-.project img{
-  width:100%;
-  border-radius:14px;
-  margin-bottom:15px;
-  transition:0.3s;
-}
-
-.project img:hover{
-  transform:translateY(-5px);
-}
-
-.badge{
-  display:inline-block;
-  padding:5px 12px;
-  background:#ffe1ef;
-  color:#ff5c9f;
-  border-radius:20px;
-  font-size:12px;
-  margin-top:8px;
-}
-
-/* ===== Contact ===== */
-.contact{
-  text-align:center;
-}
-</style>
+<title>DeadSlot | Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<section class="hero">
-  <div class="profile-wrapper">
-    <div class="ring"></div>
-    <img src="assets/pfp3.jpeg" alt="Profile">
-  </div>
-  <h1>Sakura Wings</h1>
-  <p>Python Developer • Web Architect • Discord Systems</p>
-  <a class="button" href="https://discord.com/users/1121062759971430510" target="_blank">Contact Me</a>
-</section>
+<!-- ===== HERO ===== -->
+<section id="home" class="hero">
 
-<section>
-  <div class="container">
-    <h2>What I Do</h2>
-    <div class="services">
-      <div class="service">Web Development</div>
-      <div class="service">Discord Server Creation</div>
-      <div class="service">Discord Server Management</div>
-    </div>
-  </div>
-</section>
+  <div class="hero-left">
+    
+    <div class="profile-container">
+      <img src="assets/pfp3.png" class="profile-img">
 
-<section id="skills">
-  <div class="container">
-    <h2>Skills</h2>
-
-    <div class="skill">
-      <div class="skill-top"><span>Python</span><span>90%</span></div>
-      <div class="bar"><div class="fill" data-width="90%"></div></div>
+      <div class="logo-ring">
+        <img src="assets/discord.png">
+        <img src="assets/python.png">
+        <img src="assets/moderation.png">
+        <img src="assets/robot.png">
+      </div>
     </div>
 
-    <div class="skill">
-      <div class="skill-top"><span>Web Development</span><span>85%</span></div>
-      <div class="bar"><div class="fill" data-width="85%"></div></div>
-    </div>
+    <h1>DeadSlot</h1>
+    <p class="subtitle">
+      Discord Developer • Web Designer • Community Architect
+    </p>
 
-    <div class="skill">
-      <div class="skill-top"><span>Discord Architecture</span><span>88%</span></div>
-      <div class="bar"><div class="fill" data-width="88%"></div></div>
+    <p class="about">
+      I build elite Discord servers, advanced moderation systems and modern websites 
+      designed for performance, security and growth.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#services" class="btn primary">My Services</a>
+      <a href="https://discord.com/users/1121062759971430510"
+         target="_blank" class="btn secondary">
+         Hire Me
+      </a>
     </div>
 
   </div>
+
+  <div class="hero-right">
+    <img src="assets/moon.png" class="moon-img">
+  </div>
+
 </section>
 
-<section>
-  <div class="container">
-    <h2>Projects</h2>
+<!-- ===== IMAGE SECTION 1 ===== -->
+<section class="image-section">
+  <img src="assets/banner.jpeg" class="full-image">
+</section>
 
-    <div class="project">
-      <img src="assets/image1.png">
-      <h3>Premium Community Setup</h3>
-      <p>Structured, secure, scalable Discord architecture.</p>
-      <div class="badge">Live</div>
+<!-- ===== SERVICES ===== -->
+<section id="services" class="services-section">
+
+  <h2>My Services</h2>
+
+  <div class="service-grid">
+
+    <div class="service-card" onclick="animateService(this)">
+      <img src="assets/moderation.png" class="service-icon">
+      <h3>Discord Server Setup</h3>
+      <p>Complete structured builds with roles, channels and security.</p>
     </div>
 
-    <div class="project">
-      <img src="assets/image1.png">
-      <h3>Modern Business Website</h3>
-      <p>Responsive clean UI built for conversion.</p>
-      <div class="badge">Completed</div>
+    <div class="service-card" onclick="animateService(this)">
+      <img src="assets/robot.png" class="service-icon">
+      <h3>Discord Server Management</h3>
+      <p>Active management, moderation and growth systems.</p>
+    </div>
+
+    <div class="service-card" onclick="animateService(this)">
+      <img src="assets/discord.png" class="service-icon">
+      <h3>Bot Developer</h3>
+      <p>Advanced automation and custom Discord systems.</p>
+    </div>
+
+    <div class="service-card" onclick="animateService(this)">
+      <img src="assets/python.png" class="service-icon">
+      <h3>Website Designer</h3>
+      <p>Modern responsive websites built with performance in mind.</p>
     </div>
 
   </div>
+
 </section>
 
-<section>
-  <div class="container contact">
-    <h2>Contact</h2>
-    <p>Discord: abinav_gamer (DeadSlot)</p>
+<!-- ===== IMAGE SECTION 2 ===== -->
+<section class="image-section">
+  <img src="assets/banner2.jpeg" class="full-image">
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="skills-section">
+
+  <h2>My Skills</h2>
+
+  <div class="skill">
+    <span>Python</span>
+    <div class="bar"><div class="fill" data-width="85%"></div></div>
   </div>
+
+  <div class="skill">
+    <span>Website Development</span>
+    <div class="bar"><div class="fill" data-width="85%"></div></div>
+  </div>
+
+  <div class="skill">
+    <span>Discord Development</span>
+    <div class="bar"><div class="fill" data-width="99%"></div></div>
+  </div>
+
+  <div class="skill">
+    <span>HTML & CSS</span>
+    <div class="bar"><div class="fill" data-width="75%"></div></div>
+  </div>
+
 </section>
 
-<script>
-const fills = document.querySelectorAll(".fill");
-window.addEventListener("scroll", ()=>{
-  fills.forEach(fill=>{
-    const rect = fill.getBoundingClientRect();
-    if(rect.top < window.innerHeight){
-      fill.style.width = fill.dataset.width;
-    }
-  });
-});
-</script>
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="projects-section">
 
+  <h2>Featured Projects</h2>
+
+  <div class="project-card">
+
+    <h3>GodSpell Rebirth</h3>
+    <p>High performance community server with structured systems.</p>
+    <a href="https://discord.gg/vHuTjGkDHa" target="_blank" class="join-btn">
+      Join GodSpell Rebirth
+    </a>
+
+  </div>
+
+  <div class="project-card">
+
+    <h3>Lmkey</h3>
+    <p>Organised active server built with growth and security focus.</p>
+    <a href="https://discord.gg/u7bsRqWpbE" target="_blank" class="join-btn">
+      Join Lmkey
+    </a>
+
+  </div>
+
+</section>
+
+<!-- ===== ACHIEVEMENTS ===== -->
+<section class="achievements-section">
+
+  <h2>What I Have Achieved</h2>
+
+  <ul>
+    <li>Anti Nuke Systems Deployed</li>
+    <li>Trusted By Clients</li>
+    <li>Professional Web Developer</li>
+    <li>Full Discord Server Setups Completed</li>
+  </ul>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>© 2026 DeadSlot • Built with passion under moonlight 🌙</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
-        </html>
+</html>
