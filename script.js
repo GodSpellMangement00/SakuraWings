@@ -67,7 +67,7 @@ window.addEventListener("scroll", ()=>{
 });
 
 
-// 🌙 PARALLAX HERO
+// 🌙 PARALLAX HERO BACKGROUND
 window.addEventListener("scroll", ()=>{
   const hero = document.querySelector(".hero");
   if(hero){
@@ -95,10 +95,10 @@ function createPetal(){
   },10000);
 }
 
-setInterval(createPetal, 800);
+setInterval(createPetal, 900);
 
 
-// 🌸 PETAL FALL KEYFRAME (inject dynamically)
+// 🌸 PETAL FALL KEYFRAME
 const style = document.createElement("style");
 style.innerHTML = `
 @keyframes fall {
@@ -107,14 +107,3 @@ style.innerHTML = `
 }
 `;
 document.head.appendChild(style);
-
-
-// 🌸 BUSINESS CTA GROW EFFECT
-function growCard(el){
-  el.style.transform = "scale(1.1)";
-  setTimeout(()=>{
-    el.style.transform = "scale(1)";
-  },200);
-
-  window.open("https://discord.com/users/1121062759971430510","_blank");
-}
