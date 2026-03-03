@@ -1,4 +1,8 @@
-/* 🌸 PAGE LOAD FADE */
+/* =========================
+   SAFE FINAL PRODUCTION JS
+   ========================= */
+
+/* 🌸 PAGE LOAD + LOADER */
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 
@@ -8,90 +12,86 @@ window.addEventListener("load", () => {
       loader.style.opacity = "0";
       setTimeout(() => {
         loader.style.display = "none";
-      }, 800);
-    }, 1200);
+      }, 600);
+    }, 800);
   }
 });
 
 
 /* 🌸 SCROLL REVEAL */
-const reveals = document.querySelectorAll(".reveal");
-
-function revealOnScroll(){
-  reveals.forEach(el=>{
+function handleReveal() {
+  const reveals = document.querySelectorAll(".reveal");
+  reveals.forEach(el => {
     const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
+    if (top < window.innerHeight - 100) {
       el.classList.add("active");
     }
   });
 }
-
-window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("scroll", handleReveal);
 
 
 /* 🌸 SKILL BAR ANIMATION */
-const fills = document.querySelectorAll(".fill");
-
-function animateSkills(){
-  fills.forEach(fill=>{
+function handleSkills() {
+  const fills = document.querySelectorAll(".fill");
+  fills.forEach(fill => {
     const rect = fill.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 100){
+    if (rect.top < window.innerHeight - 100) {
       fill.style.width = fill.dataset.width;
     }
   });
 }
-
-window.addEventListener("scroll", animateSkills);
+window.addEventListener("scroll", handleSkills);
 
 
 /* 🌸 COUNTER ANIMATION */
-const counters = document.querySelectorAll(".counter");
 let counterStarted = false;
 
-function runCounters(){
-  counters.forEach(counter=>{
-    const target = +counter.dataset.target;
-    let count = 0;
-    const increment = target / 100;
-
-    function update(){
-      count += increment;
-      if(count < target){
-        counter.innerText = Math.ceil(count);
-        requestAnimationFrame(update);
-      } else {
-        counter.innerText = target + "+";
-      }
-    }
-    update();
-  });
-}
-
-window.addEventListener("scroll", ()=>{
-  if(counterStarted) return;
+function handleCounters() {
+  if (counterStarted) return;
 
   const stats = document.querySelector(".stats-section");
-  if(!stats) return;
+  if (!stats) return;
 
   const rect = stats.getBoundingClientRect();
-  if(rect.top < window.innerHeight - 100){
-    runCounters();
+  if (rect.top < window.innerHeight - 100) {
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+      const target = +counter.dataset.target;
+      let count = 0;
+      const increment = target / 80;
+
+      function update() {
+        count += increment;
+        if (count < target) {
+          counter.innerText = Math.ceil(count);
+          requestAnimationFrame(update);
+        } else {
+          counter.innerText = target + "+";
+        }
+      }
+
+      update();
+    });
+
     counterStarted = true;
   }
-});
+}
+window.addEventListener("scroll", handleCounters);
 
 
 /* 🌙 PARALLAX HERO */
-window.addEventListener("scroll", ()=>{
+window.addEventListener("scroll", () => {
   const hero = document.querySelector(".hero");
-  if(hero){
+  if (hero) {
     hero.style.backgroundPositionY = window.scrollY * 0.4 + "px";
   }
 });
 
 
 /* 🌸 FLOATING SAKURA PETALS */
-function createPetal(){
+function createPetal() {
   const petal = document.createElement("div");
   petal.innerHTML = "🌸";
   petal.style.position = "fixed";
@@ -100,25 +100,23 @@ function createPetal(){
   petal.style.fontSize = Math.random() * 15 + 15 + "px";
   petal.style.opacity = Math.random();
   petal.style.pointerEvents = "none";
-  petal.style.animation = `fall ${Math.random()*5+5}s linear forwards`;
+  petal.style.animation = `fall ${Math.random() * 5 + 5}s linear forwards`;
   document.body.appendChild(petal);
 
-  setTimeout(()=>{ petal.remove(); },10000);
+  setTimeout(() => petal.remove(), 10000);
 }
+setInterval(createPetal, 1200);
 
-setInterval(createPetal, 900);
 
-
-/* 🌟 STAR GENERATOR */
+/* 🌟 STAR GENERATOR (SAFE) */
 const starContainer = document.querySelector(".stars");
-
-if(starContainer){
-  for(let i=0;i<40;i++){
+if (starContainer) {
+  for (let i = 0; i < 30; i++) {
     const star = document.createElement("div");
     star.classList.add("star");
-    star.style.top = Math.random()*100 + "%";
-    star.style.left = Math.random()*100 + "%";
-    star.style.animationDelay = Math.random()*3 + "s";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 3 + "s";
     starContainer.appendChild(star);
   }
 }
@@ -126,27 +124,25 @@ if(starContainer){
 
 /* 🌸 CURSOR GLOW */
 const glow = document.querySelector(".cursor-glow");
-
-document.addEventListener("mousemove",(e)=>{
-  if(glow){
+if (glow) {
+  document.addEventListener("mousemove", e => {
     glow.style.left = e.clientX + "px";
     glow.style.top = e.clientY + "px";
-  }
-});
+  });
+}
 
 
 /* 🌸 MAGNETIC BUTTONS */
 const magneticBtns = document.querySelectorAll(".btn");
-
-magneticBtns.forEach(btn=>{
-  btn.addEventListener("mousemove", e=>{
+magneticBtns.forEach(btn => {
+  btn.addEventListener("mousemove", e => {
     const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width/2;
-    const y = e.clientY - rect.top - rect.height/2;
-    btn.style.transform = `translate(${x*0.2}px, ${y*0.2}px)`;
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
   });
 
-  btn.addEventListener("mouseleave", ()=>{
+  btn.addEventListener("mouseleave", () => {
     btn.style.transform = "translate(0,0)";
   });
 });
@@ -154,9 +150,8 @@ magneticBtns.forEach(btn=>{
 
 /* 🌸 THEME TOGGLE */
 const toggle = document.getElementById("themeToggle");
-
-if(toggle){
-  toggle.addEventListener("click",()=>{
+if (toggle) {
+  toggle.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
     toggle.innerText =
       document.body.classList.contains("light-mode") ? "🌸" : "🌙";
@@ -169,13 +164,13 @@ const soundBtn = document.getElementById("soundToggle");
 const music = document.getElementById("bgMusic");
 let playing = false;
 
-if(soundBtn && music){
-  soundBtn.addEventListener("click",()=>{
-    if(!playing){
-      music.play();
+if (soundBtn && music) {
+  soundBtn.addEventListener("click", () => {
+    if (!playing) {
+      music.play().catch(() => {});
       soundBtn.innerText = "🔇";
       playing = true;
-    }else{
+    } else {
       music.pause();
       soundBtn.innerText = "🔊";
       playing = false;
@@ -184,7 +179,7 @@ if(soundBtn && music){
 }
 
 
-/* 🌸 PETAL KEYFRAME */
+/* 🌸 PETAL KEYFRAME INJECTION */
 const style = document.createElement("style");
 style.innerHTML = `
 @keyframes fall {
