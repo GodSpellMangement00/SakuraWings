@@ -1,39 +1,26 @@
 /* =========================
-   SAFE FINAL PRODUCTION JS
+   🌸 SAFE FINAL JS
    ========================= */
 
-/* 🌸 PAGE LOAD + LOADER */
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-
-  const loader = document.getElementById("loader");
-  if (loader) {
-    setTimeout(() => {
-      loader.style.opacity = "0";
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 600);
-    }, 800);
-  }
-});
-
-
-/* 🌸 SCROLL REVEAL */
-function handleReveal() {
+/* SCROLL REVEAL */
+function revealOnScroll() {
   const reveals = document.querySelectorAll(".reveal");
+
   reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
       el.classList.add("active");
     }
   });
 }
-window.addEventListener("scroll", handleReveal);
+
+window.addEventListener("scroll", revealOnScroll);
 
 
-/* 🌸 SKILL BAR ANIMATION */
-function handleSkills() {
+/* SKILL BAR ANIMATION */
+function animateSkills() {
   const fills = document.querySelectorAll(".fill");
+
   fills.forEach(fill => {
     const rect = fill.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) {
@@ -41,13 +28,14 @@ function handleSkills() {
     }
   });
 }
-window.addEventListener("scroll", handleSkills);
+
+window.addEventListener("scroll", animateSkills);
 
 
-/* 🌸 COUNTER ANIMATION */
+/* COUNTER ANIMATION */
 let counterStarted = false;
 
-function handleCounters() {
+function animateCounters() {
   if (counterStarted) return;
 
   const stats = document.querySelector(".stats-section");
@@ -55,12 +43,13 @@ function handleCounters() {
 
   const rect = stats.getBoundingClientRect();
   if (rect.top < window.innerHeight - 100) {
+
     const counters = document.querySelectorAll(".counter");
 
     counters.forEach(counter => {
       const target = +counter.dataset.target;
       let count = 0;
-      const increment = target / 80;
+      const increment = target / 60;
 
       function update() {
         count += increment;
@@ -78,113 +67,58 @@ function handleCounters() {
     counterStarted = true;
   }
 }
-window.addEventListener("scroll", handleCounters);
+
+window.addEventListener("scroll", animateCounters);
 
 
-/* 🌙 PARALLAX HERO */
+/* PARALLAX HERO (SAFE) */
 window.addEventListener("scroll", () => {
   const hero = document.querySelector(".hero");
   if (hero) {
-    hero.style.backgroundPositionY = window.scrollY * 0.4 + "px";
+    hero.style.backgroundPositionY = window.scrollY * 0.3 + "px";
   }
 });
 
 
-/* 🌸 FLOATING SAKURA PETALS */
-function createPetal() {
-  const petal = document.createElement("div");
-  petal.innerHTML = "🌸";
-  petal.style.position = "fixed";
-  petal.style.top = "-20px";
-  petal.style.left = Math.random() * window.innerWidth + "px";
-  petal.style.fontSize = Math.random() * 15 + 15 + "px";
-  petal.style.opacity = Math.random();
-  petal.style.pointerEvents = "none";
-  petal.style.animation = `fall ${Math.random() * 5 + 5}s linear forwards`;
-  document.body.appendChild(petal);
-
-  setTimeout(() => petal.remove(), 10000);
-}
-setInterval(createPetal, 1200);
-
-
-/* 🌟 STAR GENERATOR (SAFE) */
-const starContainer = document.querySelector(".stars");
-if (starContainer) {
-  for (let i = 0; i < 30; i++) {
-    const star = document.createElement("div");
-    star.classList.add("star");
-    star.style.top = Math.random() * 100 + "%";
-    star.style.left = Math.random() * 100 + "%";
-    star.style.animationDelay = Math.random() * 3 + "s";
-    starContainer.appendChild(star);
-  }
-}
-
-
-/* 🌸 CURSOR GLOW */
+/* CURSOR GLOW (SAFE) */
 const glow = document.querySelector(".cursor-glow");
+
 if (glow) {
-  document.addEventListener("mousemove", e => {
+  document.addEventListener("mousemove", (e) => {
     glow.style.left = e.clientX + "px";
     glow.style.top = e.clientY + "px";
   });
 }
 
 
-/* 🌸 MAGNETIC BUTTONS */
-const magneticBtns = document.querySelectorAll(".btn");
-magneticBtns.forEach(btn => {
-  btn.addEventListener("mousemove", e => {
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
-  });
-
-  btn.addEventListener("mouseleave", () => {
-    btn.style.transform = "translate(0,0)";
-  });
-});
-
-
-/* 🌸 THEME TOGGLE */
+/* THEME TOGGLE */
 const toggle = document.getElementById("themeToggle");
+
 if (toggle) {
   toggle.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
-    toggle.innerText =
+    toggle.textContent =
       document.body.classList.contains("light-mode") ? "🌸" : "🌙";
   });
 }
 
 
-/* 🔊 SOUND TOGGLE */
+/* SOUND TOGGLE (SAFE) */
 const soundBtn = document.getElementById("soundToggle");
 const music = document.getElementById("bgMusic");
-let playing = false;
 
 if (soundBtn && music) {
+  let playing = false;
+
   soundBtn.addEventListener("click", () => {
     if (!playing) {
       music.play().catch(() => {});
-      soundBtn.innerText = "🔇";
+      soundBtn.textContent = "🔇";
       playing = true;
     } else {
       music.pause();
-      soundBtn.innerText = "🔊";
+      soundBtn.textContent = "🔊";
       playing = false;
     }
   });
 }
-
-
-/* 🌸 PETAL KEYFRAME INJECTION */
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes fall {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(110vh) rotate(360deg); }
-}
-`;
-document.head.appendChild(style);
